@@ -215,9 +215,7 @@ public class Huesped {
         boolean valido = false;
         try{
             if(dni.matches(ER_DNI))//Comprobamos el formato del dni
-                if(comprobarLetraDni(dni))//comprobamos que la letra es correcta (actualmente los dni introducidos por el test
-                // tienen una letra no concordante con los números, por lo que no pasan el test correctamente al esperarse que
-                // el resultado sea aceptado.
+                if(comprobarLetraDni(dni))//comprobamos que la letra es correcta
                      valido = true;//Si válido añadimos
 
         }catch(NullPointerException e){
