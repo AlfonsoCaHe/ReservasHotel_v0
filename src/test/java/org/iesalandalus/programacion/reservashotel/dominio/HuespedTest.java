@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HuespedTest {
-/*
     private static final String CADENA_NO_ESPERADA = "La cadena devuelta no es la esperada.";
 
     private static final String NOMBRE_NO_ESPERADO = "El nombre devuelto no es el mismo que el pasado al constructor.";
@@ -36,7 +35,7 @@ public class HuespedTest {
     private static final String DNI_INCORRECTO = "Debería haber saltado una excepción indicando que el DNI es incorrecto";
     private static final String ERROR_DNI_NULO = "ERROR: El dni de un huésped no puede ser nulo.";
     private static final String ERROR_DNI_NO_VALIDO = "ERROR: El dni del huésped no tiene un formato válido.";
-    private static final String ERROR_CORREO_NULO = "ERROR: El correo de un huésped no puede ser nulo.";
+    private static final String ERROR_CORREO_NULO = "ERROR: El correo de un huésped no puede ser nulo";
     private static final String CORREO_INCORRECTO = "Debería haber saltado una excepción indicando que el correo es incorrecto";
     private static final String ERROR_CORREO_NO_VALIDO = "ERROR: El correo del huésped no tiene un formato válido.";
     private static final String ERROR_TELEFONO_NO_VALIDO = "ERROR: El teléfono del huésped no tiene un formato válido.";
@@ -379,6 +378,4 @@ public class HuespedTest {
         huesped = new Huesped(NOMBRE_MAL_ARDR, DNI_ARDR, CORREO_ARDR, TELEFONO_ARDR, FECHA_NACIMIENTO_ARDR);
         assertEquals(String.format("nombre=%s (%s), DNI=%s, correo=%s, teléfono=%s, fecha nacimiento=%s", NOMBRE_ARDR, "ARDR", DNI_ARDR, CORREO_ARDR, TELEFONO_ARDR, FECHA_NACIMIENTO_ARDR.format(DateTimeFormatter.ofPattern(FORMATO_FECHA))), huesped.toString(), CADENA_NO_ESPERADA);
     }
-
- */
 }
