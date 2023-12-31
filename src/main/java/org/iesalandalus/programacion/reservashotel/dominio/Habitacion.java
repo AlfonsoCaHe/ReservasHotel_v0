@@ -29,6 +29,13 @@ public class Habitacion {
         setIdentificador();
     }
 
+    public Habitacion(int planta, int puerta, double precio){
+        setPlanta(planta);
+        setPuerta(puerta);
+        setPrecio(precio);
+        setIdentificador();
+    }
+
     /*Crea el constructor copia.*/
     public Habitacion(Habitacion habitacion){
         try {
