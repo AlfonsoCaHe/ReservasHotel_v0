@@ -7,10 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Reserva {
-    public static int MAX_NUMERO_MESES_RESERVA = 6;
+    public static int MAX_NUMERO_MESES_RESERVA = 6;//Aunque aparece como private en el diagrama, se ha modificado su visibilida para poder usarse en el test
     private int MAX_HORAS_POSTERIORES_CHECKOUT = 12;
     public static String FORMATO_FECHA_RESERVA = "dd/MM/yyyy";
-    public static String FORMATO_FECHA_HORA_RESERVA = "dd/MM/yyyy";
+    public static String FORMATO_FECHA_HORA_RESERVA = "dd/MM/yyyy";//Aunque no se encuentras en el diagrama se ha añadido para poder pasar el test
     private Huesped huesped;
     private Habitacion habitacion;
     private Regimen regimen;
