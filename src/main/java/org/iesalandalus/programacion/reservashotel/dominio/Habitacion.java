@@ -150,7 +150,7 @@ public class Habitacion {
     @Override
     public boolean equals(Object obj) {
         Habitacion habitacion = (Habitacion)obj;
-        return habitacion.getIdentificador() == this.identificador;
+        return habitacion.getIdentificador().equals(this.identificador);
     }
 
     @Override
