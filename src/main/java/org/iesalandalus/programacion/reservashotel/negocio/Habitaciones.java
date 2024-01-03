@@ -161,7 +161,7 @@ public class Habitaciones {
             habitaciones[indice] = habitaciones [indice + 1];
             indice++;
         }
-        habitaciones[indice] = null;//Se borra el último registro de huéspede para evitar duplicados
-        tamano--;//Se reduce el número de huéspedes
+        habitaciones[indice] = null;//Se borra el último registro de habitaciones para evitar duplicados
+        tamano--;//Se reduce el número de habitaciones
     }
 }
