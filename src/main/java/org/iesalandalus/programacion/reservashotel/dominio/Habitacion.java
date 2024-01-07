@@ -90,7 +90,7 @@ public class Habitacion {
     }
 
     private void setPuerta(int puerta){
-        Integer numero = Integer.parseInt("" + puerta);//Comprobamos que el int planta no sea null
+        Integer numero = Integer.parseInt("" + puerta);//Comprobamos que el int puerta no sea null
         if (numero == null) {
             throw new NullPointerException("ERROR: El número de la puerta no puede ser nulo");
         }
@@ -110,7 +110,7 @@ public class Habitacion {
     }
 
     public void setPrecio(double precio) {
-        Double numero = Double.parseDouble("" + precio);//Comprobamos que el int planta no sea null
+        Double numero = Double.parseDouble("" + precio);//Comprobamos que el double precio no sea null
         if (numero == null) {
             throw new NullPointerException("ERROR: El precio de la habitación no puede ser nulo");
         }

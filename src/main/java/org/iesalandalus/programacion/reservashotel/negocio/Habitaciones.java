@@ -1,7 +1,6 @@
 package org.iesalandalus.programacion.reservashotel.negocio;
 
 import org.iesalandalus.programacion.reservashotel.dominio.Habitacion;
-import org.iesalandalus.programacion.reservashotel.dominio.Huesped;
 import org.iesalandalus.programacion.reservashotel.dominio.TipoHabitacion;
 
 public class Habitaciones {

@@ -2,9 +2,6 @@ package org.iesalandalus.programacion.reservashotel.negocio;
 
 import org.iesalandalus.programacion.reservashotel.dominio.Huesped;
 
-import javax.naming.OperationNotSupportedException;
-import java.util.Arrays;
-
 public class Huespedes {
 
     private int capacidad;
