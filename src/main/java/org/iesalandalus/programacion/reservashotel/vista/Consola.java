@@ -8,8 +8,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Consola {
-
-    private static int numeroHuesped = 1;//Variable para la creación de huéspedes mediante DNI;
     /*
     Crea su constructor teniendo en cuenta que es una clase de utilidades y que no tiene sentido instanciar objetos de la misma.
      */
@@ -26,13 +24,13 @@ public class Consola {
     }
 
     /*Crea el método elegirOpcion que pedirá que elijamos la opción y devolverá la instancia del enumerado Opcion correspondiente.*/
-    public static int elegirOpcion(){
+    public static int elegirOpcion() {
         int opcionElegida = 0;//Inicializamos a una opción no válida.
         do{
             mostrarMenu();
-            System.out.print("\nElija una opción: (1-" + (Opcion.values().length - 1) + ") ");
+            System.out.print("\nElija una opción: (1-" + (Opcion.values().length) + ") ");
             opcionElegida = Entrada.entero();
-        }while((opcionElegida < 1) || (opcionElegida > Opcion.values().length - 1));//Las opciones van del 1 a la última opción
+        }while((opcionElegida < 1) || (opcionElegida > Opcion.values().length));//Las opciones van del 1 a la última opción
         return opcionElegida;
     }
 
@@ -42,10 +40,7 @@ public class Consola {
     public static Huesped leerHuesped() throws IllegalArgumentException{
         Huesped huesped = null;
         try{
-            System.out.println("************************************************************");
-            System.out.println("Introduzca un huésped");
-            System.out.println("************************************************************\n");
-            System.out.print("Nombre:\t");
+            System.out.print("Nombre y apellidos:\t");
             String nombre = Entrada.cadena();
             System.out.print("\nDNI:\t");
             String dni = Entrada.cadena();
@@ -81,8 +76,7 @@ public class Consola {
             if(dni == null) {
                 throw new NullPointerException("ERROR: El dni de un huesped no puede ser nulo.");
             }
-            huesped = new Huesped("Huesped"+numeroHuesped, dni, "huesped"+numeroHuesped+"@iesalandalus.es", "67600000"+numeroHuesped, LocalDate.of(2000,1,numeroHuesped));
-            numeroHuesped++;
+            huesped = new Huesped("Huesped", dni, "huesped@iesalandalus.es", "123456789", LocalDate.of(2000,1,1));
         }catch (IllegalArgumentException e){
             System.out.println("ERROR: No se puede crear un huesped con ese dni.");
         }
@@ -96,12 +90,13 @@ public class Consola {
         LocalDate fecha = null;
         do{
             try {
-                System.out.print("\tIntroduzca el día:");
+                System.out.print("\tIntroduzca el día: ");
                 int dia = Entrada.entero();
-                System.out.print("\n\tIntroduzca el mes:");
+                System.out.print("\n\tIntroduzca el mes: ");
                 int mes = Entrada.entero();
-                System.out.print("\n\tIntroduzca el año:");
+                System.out.print("\n\tIntroduzca el año: ");
                 int ano = Entrada.entero();
+                System.out.println(" ");
                 fecha = LocalDate.of(ano, mes, dia);
             }catch(DateTimeException e) {
                 System.err.println("ERROR: La fecha introducida no es correcta.");
@@ -113,7 +108,7 @@ public class Consola {
     /*Crea el método leerHabitacion que nos pedirá los datos correspondientes a una habitación y devolverá un objeto instancia de
     dicha clase en el caso que los datos introducidos sean correctos o propague la excepción correspondiente en caso contrario.
     */
-    public static Habitacion leerHabitacion()throws IllegalArgumentException{
+    public static Habitacion leerHabitacion(){
         Habitacion habitacion = null;
         try {
             System.out.print("\tIntroduzca la planta: ");
@@ -165,7 +160,7 @@ public class Consola {
         int opcion;
         do {
             System.out.print("\n\tIntroduzca el tipo de habitación: ");
-            System.out.println("\t\t1. Suite.\n\t\t2. Simple.\n\t\t3. Doble.\n\t\t4.Triple.");
+            System.out.println("\n\t\t1. Suite.\n\t\t2. Simple.\n\t\t3. Doble.\n\t\t4. Triple.");
             opcion = Entrada.entero();
             switch (opcion) {
                 case 1:
@@ -191,7 +186,7 @@ public class Consola {
         int opcion;
         do {
             System.out.print("\n\tIntroduzca el tipo de régimen: ");
-            System.out.println("\t\t1. Solo alojamient.\n\t\t2. Alojamiento y desayuno.\n\t\t3. Media pensión.\n\t\t4.Pensión completa.");
+            System.out.println("\t\t1. Solo alojamiento.\n\t\t2. Alojamiento y desayuno.\n\t\t3. Media pensión.\n\t\t4. Pensión completa.");
             opcion = Entrada.entero();
             switch (opcion) {
                 case 1:
@@ -216,13 +211,20 @@ public class Consola {
     public static Reserva leerReserva(){
         Reserva reserva;
         int numero_Personas;
-        Huesped huesped = leerHuesped();
-        Habitacion habitacion = leerHabitacion();
+        System.out.print("Introduzca el dni del cliente: ");
+        Huesped huesped = leerClientePorDni(Entrada.cadena());
+        System.out.println(" ");
+        Habitacion habitacion = leerHabitacionPorIdentificador();
         Regimen regimen = leerRegimen();
+        System.out.println("Introduzca la fecha de inicio de la reserva: ");
         LocalDate fechaInicioReserva = leerFecha();
+        System.out.println("\nIntroduzca la fecha de fin de la reserva: ");
         LocalDate fechaFinReserva = leerFecha();
+        System.out.println(" ");
         do{
+            System.out.print("Introduzca el número de personas para la reserva: (1 -4) ");
             numero_Personas = Entrada.entero();
+            System.out.println(" ");
         }while(numero_Personas < 1 || numero_Personas > 4);
         reserva = new Reserva(huesped, habitacion, regimen, fechaInicioReserva, fechaFinReserva, numero_Personas);
         return reserva;

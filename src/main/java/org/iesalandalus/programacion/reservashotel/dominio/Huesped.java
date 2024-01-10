@@ -285,7 +285,7 @@ public class Huesped {
     @Override
     public boolean equals(Object obj) {
         Huesped huesped = (Huesped)obj;
-        return huesped.getDni() == this.dni;
+        return huesped.getDni().equals(this.dni);
     }
 
     @Override
